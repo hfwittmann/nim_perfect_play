@@ -2,4 +2,4 @@ This is an implementation of Charles Leonard Bouton's solution of the game of Ni
 
 See blog post:
 
-https://arthought.com/xyz
+https://arthought.com/perfect-play-in-the-game-of-nim/
