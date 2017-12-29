@@ -16,11 +16,9 @@ def main():
 
     parsed_args = myparse_args(sys.argv[1:])
     
-    collected_inputs = {'Heaps': parsed_args.Heaps}
-        
-    print('nim_perfect_play will be here:', collected_inputs)
+    out = nim_perfect_play.findWinningMove(parsed_args.Heaps)
     
-    return collected_inputs
+    return out
 
 
 # https://stackoverflow.com/questions/18160078/how-do-you-write-tests-for-the-argparse-portion-of-a-python-module

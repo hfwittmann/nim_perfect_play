@@ -73,7 +73,7 @@ class TestConsole(TestCase):
             
             
         
-            if np.alltrue(next_position == 0):
+            if sum(next_position) == 0:
                 done = True
             
             print ('position :{}, next_position: {}, winning : {}, done: {}'.format(position, next_position, winning, done))

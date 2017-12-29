@@ -22,8 +22,14 @@ class TestConsole(TestCase):
     def test_commandline(self):
         
         sys.argv[1:] = ['--Heaps', '1','2','32'  ]
-        blub = main()
+        output = main()
         
-        self.assertEqual( {'Heaps': [1,2,32]}, blub, 'Should be equal')
+        self.assertEqual( {'winning': True, 
+                            'description': 'From heap 2 take this number of beans : 29', 
+                            'move': [2, 29], 
+                            'next_position': [1, 2, 3], 
+                            'position_before_move': [ 1,  2, 32]}, 
+                             output,
+                            'Should be equal')
 #        
-# for simple debugging : self = TestConsole()        
+# for simple debugging : self = TestConsole()

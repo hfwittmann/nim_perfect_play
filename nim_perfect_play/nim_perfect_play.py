@@ -64,7 +64,6 @@ def NIM_SUM(xList):
     
     # In [47]: NIM_SUM([4,4])
     # Out[47]: 0
-
     
     
 def isWinning(heapsIn):
@@ -157,8 +156,8 @@ def findWinningMove(heapsIn):
     out = { 'winning' : isWinning(heapsIn),
             'description': 'From heap {} take this number of beans : {}'.format(heapnumber, beansNumber),
             'move': [heapnumber, beansNumber],
-            'next_position' : heapsNext,
-            'position_before_move': heaps
+            'next_position' : list(heapsNext),
+            'position_before_move': list(heaps)
             }     
             
     return out
