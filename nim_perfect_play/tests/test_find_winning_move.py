@@ -171,41 +171,35 @@ class TestConsole(TestCase):
     def test_heap_with_power(self):
         
         heap_index = find_heap_with_power ([1, 4, 8, 8])  
-        #        In [157]: NIM_SUM([1, 4, 8, 8])
-        #        Out[157]: 5
+
+        """ Quote from wikipedia:
+        To find out which move to make, let X be the nim-sum of all the heap sizes. Find a heap where the nim-sum of X and
+        heap-size is less than the heap-size - the winning strategy is to play in such a heap, reducing that heap to the nim
+        sum of its original size with X. "
+           
+        https://en.wikipedia.org/wiki/Nim
+        """
+    
+        #        heaps = [1, 4, 8, 8]
+        #        [(heapSize |NIM_PLUS| NIM_SUM(heaps)) < heapSize  for heapSize in heaps]
+        #       
+        #        Out[19]: [False, True, False, False]        
         
-        #        In [154]: getBinaryRepresentation([1, 4, 8, 8, 5])
-        #        Out[154]: 
-        #        array([[0, 0, 0, 0, 0],
-        #               [0, 0, 0, 0, 0],
-        #               [0, 0, 0, 0, 0],
-        #               [0, 0, 0, 0, 0],
-        #               [0, 0, 1, 1, 0],
-        #               [0, 1, 0, 0, 1],
-        #               [0, 0, 0, 0, 0],
-        #               [1, 0, 0, 0, 1]], dtype=uint8)
+        # From the above we can see that the only heap that fits the criterion is 
+        # heap 2 (ie the heap_index is 1)
         
-        # From the above we can see that the heap_index is 1
         self.assertEqual( heap_index, 1 )
         
         
         heap_index_2 = find_heap_with_power ([1, 4, 8, 8, 23])  
         
-        #        In [162]: NIM_SUM([1, 4, 8, 8, 23])
-        #        Out[162]: 18
-        
-        #        In [168]: getBinaryRepresentation([1, 4, 8, 8, 23, 18])
-        #        Out[168]: 
-        #        array([[0, 0, 0, 0, 0, 0],
-        #               [0, 0, 0, 0, 0, 0],
-        #               [0, 0, 0, 0, 0, 0],
-        #               [0, 0, 0, 0, 1, 1],
-        #               [0, 0, 1, 1, 0, 0],
-        #               [0, 1, 0, 0, 1, 0],
-        #               [0, 0, 0, 0, 1, 1],
-        #               [1, 0, 0, 0, 1, 0]], dtype=uint8)
-        
+        #        heaps = [1, 4, 8, 8, 23]
+        #        [(heapSize |NIM_PLUS| NIM_SUM(heaps)) < heapSize  for heapSize in heaps]
+        #        
+        #        Out[20]: [False, False, False, False, True]
+                
         # From the above we can see that the largest_heap_index is 4
+        
         self.assertEqual( heap_index_2, 4 )
         
         
