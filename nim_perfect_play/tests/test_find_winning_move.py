@@ -198,7 +198,8 @@ class TestConsole(TestCase):
         #        
         #        Out[20]: [False, False, False, False, True]
                 
-        # From the above we can see that the largest_heap_index is 4
+        # From the above we can see that the only heap that fits the criterion is 
+        # heap 5 (ie the heap_index is 4)
         
         self.assertEqual( heap_index_2, 4 )
         
