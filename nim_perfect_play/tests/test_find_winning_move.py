@@ -5,9 +5,8 @@ Created on Wed Apr  6 18:16:43 2016
 @author: hfwittmann
 """
     
-import numpy as np
 from unittest import TestCase
-from nim_perfect_play.nim_perfect_play import findWinningMove, NIM_PLUS, NIM_SUM, find_largest_heap_with_power
+from nim_perfect_play.nim_perfect_play import findWinningMove, NIM_PLUS, NIM_SUM, find_heap_with_power
 
 class TestConsole(TestCase):
     
@@ -32,7 +31,7 @@ class TestConsole(TestCase):
         #         'winning': True}
         #        
         
-        self.assertEqual(result1['move'], [2, 1])
+        self.assertEqual(result1['move'], [0, 1])
         self.assertEqual(result1['winning'], True)
         
     def test_find3(self):
@@ -169,9 +168,9 @@ class TestConsole(TestCase):
            'NIM_SUM([x, x] nust be zero for all x. Thus x is its own inverse.' )
                
 
-    def test_largest_heap_with_power(self):
+    def test_heap_with_power(self):
         
-        largest_heap_index = find_largest_heap_with_power ([1, 4, 8, 8])  
+        heap_index = find_heap_with_power ([1, 4, 8, 8])  
         #        In [157]: NIM_SUM([1, 4, 8, 8])
         #        Out[157]: 5
         
@@ -186,11 +185,11 @@ class TestConsole(TestCase):
         #               [0, 0, 0, 0, 0],
         #               [1, 0, 0, 0, 1]], dtype=uint8)
         
-        # From the above we can see that the largest_heap_index is 1
-        self.assertEqual( largest_heap_index, 1 )
+        # From the above we can see that the heap_index is 1
+        self.assertEqual( heap_index, 1 )
         
         
-        largest_heap_index_2 = find_largest_heap_with_power ([1, 4, 8, 8, 23])  
+        heap_index_2 = find_heap_with_power ([1, 4, 8, 8, 23])  
         
         #        In [162]: NIM_SUM([1, 4, 8, 8, 23])
         #        Out[162]: 18
@@ -207,7 +206,7 @@ class TestConsole(TestCase):
         #               [1, 0, 0, 0, 1, 0]], dtype=uint8)
         
         # From the above we can see that the largest_heap_index is 4
-        self.assertEqual( largest_heap_index_2, 4 )
+        self.assertEqual( heap_index_2, 4 )
         
         
         
